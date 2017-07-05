@@ -1,4 +1,4 @@
-package gssrcpgef5.handlers;
+package com.gss.rcp.handlers;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.jface.dialogs.MessageDialog;
