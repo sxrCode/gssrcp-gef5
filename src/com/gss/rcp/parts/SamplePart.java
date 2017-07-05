@@ -1,4 +1,4 @@
-package gssrcpgef5.parts;
+package com.gss.rcp.parts;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package gssrcpgef5;
+package com.gss.rcp;
 
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
