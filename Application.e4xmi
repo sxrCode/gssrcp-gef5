@@ -25,10 +25,10 @@
       </children>
     </trimBars>
   </children>
-  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="gssrcpgef5.handler.quitCommand" contributionURI="bundleclass://gssrcp-gef5/gssrcpgef5.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="gssrcpgef5.handler.openCommand" contributionURI="bundleclass://gssrcp-gef5/gssrcpgef5.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="gssrcpgef5.handler.saveCommand" contributionURI="bundleclass://gssrcp-gef5/gssrcpgef5.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="gssrcpgef5.handler.aboutCommand" contributionURI="bundleclass://gssrcp-gef5/gssrcpgef5.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="gssrcpgef5.handler.quitCommand" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="gssrcpgef5.handler.openCommand" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="gssrcpgef5.handler.saveCommand" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="gssrcpgef5.handler.aboutCommand" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>

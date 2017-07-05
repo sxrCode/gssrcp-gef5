@@ -2,6 +2,7 @@ package com.gss.rcp.parts;
 
 import java.util.Arrays;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
@@ -16,7 +17,11 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
+import com.gss.rcp.view.LoginView;
 
 public class SamplePart {
 
@@ -29,7 +34,6 @@ public class SamplePart {
 	@PostConstruct
 	public void createComposite(Composite parent) {
 		parent.setLayout(new GridLayout(1, false));
-
 		txtInput = new Text(parent, SWT.BORDER);
 		txtInput.setMessage("Enter text to mark part as dirty");
 		txtInput.addModifyListener(new ModifyListener() {
@@ -42,7 +46,8 @@ public class SamplePart {
 
 		tableViewer = new TableViewer(parent);
 
-		tableViewer.setContentProvider(ArrayContentProvider.getInstance());;
+		tableViewer.setContentProvider(ArrayContentProvider.getInstance());
+		;
 		tableViewer.setInput(createInitialDataModel());
 		tableViewer.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
 	}
@@ -56,7 +61,16 @@ public class SamplePart {
 	public void save() {
 		dirty.setDirty(false);
 	}
-	
+
+	@Inject
+	public void test5(Shell sysShell, Display display) {
+		System.out.println("loginView open!");
+		Shell shell = new Shell(display, SWT.BORDER | SWT.APPLICATION_MODAL);
+		LoginView loginView = new LoginView(shell);
+		loginView.open();
+		sysShell.setMaximized(true);
+	}
+
 	private List<String> createInitialDataModel() {
 		return Arrays.asList("Sample item 1", "Sample item 2", "Sample item 3", "Sample item 4", "Sample item 5");
 	}

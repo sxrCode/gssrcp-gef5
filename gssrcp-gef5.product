@@ -3,6 +3,7 @@
 
 <product name="gssrcp-gef5" id="gssrcp-gef5.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -15,14 +16,17 @@
 
    <windowImages/>
 
+
    <launcher>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="com.google.guava"/>
@@ -33,12 +37,14 @@
       <plugin id="gssrcp-gef5"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
+      <plugin id="org.antlr.runtime"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
       <plugin id="org.apache.commons.jxpath"/>
       <plugin id="org.apache.commons.logging"/>
       <plugin id="org.apache.felix.scr"/>
+      <plugin id="org.apache.log4j"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
@@ -83,6 +89,7 @@
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.gef.common"/>
+      <plugin id="org.eclipse.gef.dot"/>
       <plugin id="org.eclipse.gef.fx"/>
       <plugin id="org.eclipse.gef.fx.jface"/>
       <plugin id="org.eclipse.gef.fx.swt"/>
@@ -94,10 +101,11 @@
       <plugin id="org.eclipse.gef.graph"/>
       <plugin id="org.eclipse.gef.layout"/>
       <plugin id="org.eclipse.gef.mvc"/>
+      <plugin id="org.eclipse.gef.mvc.compatibility.equinox" fragment="true"/>
       <plugin id="org.eclipse.gef.mvc.fx"/>
-      <plugin id="org.eclipse.gef.mvc.fx.compatibility.equinox" fragment="true"/>
       <plugin id="org.eclipse.gef.zest.fx"/>
       <plugin id="org.eclipse.gef.zest.fx.compatibility.equinox" fragment="true"/>
+      <plugin id="org.eclipse.gef.zest.fx.jface"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
       <plugin id="org.eclipse.osgi"/>
@@ -111,11 +119,26 @@
       <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
       <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.xtend.lib"/>
+      <plugin id="org.eclipse.xtend.lib.macro"/>
+      <plugin id="org.eclipse.xtext"/>
+      <plugin id="org.eclipse.xtext.common.types"/>
+      <plugin id="org.eclipse.xtext.util"/>
+      <plugin id="org.eclipse.xtext.xbase"/>
+      <plugin id="org.eclipse.xtext.xbase.lib"/>
+      <plugin id="org.objectweb.asm"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.events"/>
       <plugin id="org.w3c.dom.smil"/>
       <plugin id="org.w3c.dom.svg"/>
    </plugins>
 
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
 
 </product>

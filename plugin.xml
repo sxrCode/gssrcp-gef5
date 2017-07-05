@@ -10,11 +10,7 @@
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="lifeCycleURI"
-               value="bundleclass://gssrcp-gef5/gssrcpgef5.E4LifeCycle">
-         </property>
-         <property
-               name="applicationCSS"
-               value="platform:/plugin/gssrcp-gef5/css/default.css">
+               value="bundleclass://gssrcp-gef5/com.gss.rcp.E4LifeCycle">
          </property>
          <property
                name="appName"
