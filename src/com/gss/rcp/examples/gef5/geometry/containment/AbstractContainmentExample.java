@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.containment;
+package com.gss.rcp.examples.gef5.geometry.containment;
 
 import java.util.ArrayList;
 
@@ -124,9 +124,8 @@ public abstract class AbstractContainmentExample implements PaintListener {
 		private double radius = 5;
 
 		/**
-		 * Creates a new ControlPoint object. Adds event listeners to the given
-		 * Canvas object, so that the user can drag the control point with the
-		 * mouse.
+		 * Creates a new ControlPoint object. Adds event listeners to the given Canvas
+		 * object, so that the user can drag the control point with the mouse.
 		 *
 		 * @param canvas
 		 *            Drawing area
@@ -145,9 +144,8 @@ public abstract class AbstractContainmentExample implements PaintListener {
 		}
 
 		/**
-		 * Creates a new ControlPoint object. Adds event listeners to the given
-		 * Canvas object, so that the user can drag the control point with the
-		 * mouse.
+		 * Creates a new ControlPoint object. Adds event listeners to the given Canvas
+		 * object, so that the user can drag the control point with the mouse.
 		 *
 		 * @param canvas
 		 *            Drawing area
@@ -178,8 +176,8 @@ public abstract class AbstractContainmentExample implements PaintListener {
 		public void draw(GC gc) {
 			// System.out.println(ellipse.toString());
 			gc.setBackground(Display.getCurrent().getSystemColor(color));
-			gc.fillOval((int) ellipse.getX(), (int) ellipse.getY(),
-					(int) ellipse.getWidth(), (int) ellipse.getHeight());
+			gc.fillOval((int) ellipse.getX(), (int) ellipse.getY(), (int) ellipse.getWidth(),
+					(int) ellipse.getHeight());
 		}
 
 		/**
@@ -196,8 +194,7 @@ public abstract class AbstractContainmentExample implements PaintListener {
 			switch (e.type) {
 			case SWT.Resize:
 				Rectangle bounds = SWT2Geometry.toRectangle(canvas.getBounds());
-				p.scale(bounds.getWidth() / oldShellWidth,
-						bounds.getHeight() / oldShellHeight);
+				p.scale(bounds.getWidth() / oldShellWidth, bounds.getHeight() / oldShellHeight);
 				oldShellWidth = bounds.getWidth();
 				oldShellHeight = bounds.getHeight();
 				update();
@@ -257,11 +254,9 @@ public abstract class AbstractContainmentExample implements PaintListener {
 
 			// check canvas pane:
 			p.x = inRange(canvas.getClientArea().x + radius, p.x,
-					canvas.getClientArea().x + canvas.getClientArea().width
-							- radius);
+					canvas.getClientArea().x + canvas.getClientArea().width - radius);
 			p.y = inRange(canvas.getClientArea().y + radius, p.y,
-					canvas.getClientArea().y + canvas.getClientArea().height
-							- radius);
+					canvas.getClientArea().y + canvas.getClientArea().height - radius);
 
 			// check links:
 			if (xLink != null) {
@@ -295,8 +290,7 @@ public abstract class AbstractContainmentExample implements PaintListener {
 				cp.update();
 			}
 
-			ellipse = new Ellipse(p.x - radius, p.y - radius, radius * 2,
-					radius * 2);
+			ellipse = new Ellipse(p.x - radius, p.y - radius, radius * 2, radius * 2);
 		}
 	}
 
@@ -316,8 +310,7 @@ public abstract class AbstractContainmentExample implements PaintListener {
 		shell = new Shell(display, SWT.SHELL_TRIM | SWT.DOUBLE_BUFFERED);
 		shell.setText(title);
 		shell.setBounds(0, 0, 640, 480);
-		shell.setBackground(
-				Display.getCurrent().getSystemColor(SWT.COLOR_WHITE));
+		shell.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_WHITE));
 
 		// open the shell before creating the controllable shapes so that their
 		// default coordinates are not changed due to the resize of their canvas
@@ -340,11 +333,9 @@ public abstract class AbstractContainmentExample implements PaintListener {
 
 	protected abstract boolean computeIntersects(IGeometry g1, IGeometry g2);
 
-	protected abstract AbstractControllableShape createControllableShape1(
-			Canvas canvas);
+	protected abstract AbstractControllableShape createControllableShape1(Canvas canvas);
 
-	protected abstract AbstractControllableShape createControllableShape2(
-			Canvas canvas);
+	protected abstract AbstractControllableShape createControllableShape2(Canvas canvas);
 
 	@Override
 	public void paintControl(PaintEvent e) {
@@ -354,14 +345,12 @@ public abstract class AbstractContainmentExample implements PaintListener {
 		IGeometry cs2geometry = controllableShape2.createGeometry();
 
 		if (computeIntersects(cs1geometry, cs2geometry)) {
-			e.gc.setBackground(
-					Display.getCurrent().getSystemColor(INTERSECTS_COLOR));
+			e.gc.setBackground(Display.getCurrent().getSystemColor(INTERSECTS_COLOR));
 			controllableShape2.fillShape(e.gc);
 		}
 
 		if (computeContains(cs1geometry, cs2geometry)) {
-			e.gc.setBackground(
-					Display.getCurrent().getSystemColor(CONTAINS_COLOR));
+			e.gc.setBackground(Display.getCurrent().getSystemColor(CONTAINS_COLOR));
 			controllableShape2.fillShape(e.gc);
 		}
 

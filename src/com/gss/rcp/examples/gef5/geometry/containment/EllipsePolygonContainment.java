@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.containment;
+package com.gss.rcp.examples.gef5.geometry.containment;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.Ellipse;
@@ -20,8 +20,7 @@ import org.eclipse.gef.geometry.planar.Polygon;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Canvas;
 
-public class EllipsePolygonContainment
-		extends AbstractEllipseContainmentExample {
+public class EllipsePolygonContainment extends AbstractEllipseContainmentExample {
 
 	public static void main(String[] args) {
 		new EllipsePolygonContainment();
@@ -42,8 +41,7 @@ public class EllipsePolygonContainment
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {
@@ -53,8 +51,7 @@ public class EllipsePolygonContainment
 			@Override
 			public Polygon createGeometry() {
 				Point[] points = getControlPoints();
-				Polygon polygon = new Polygon(points[0].x - 50,
-						points[0].y - 50, points[0].x + 100, points[0].y - 30,
+				Polygon polygon = new Polygon(points[0].x - 50, points[0].y - 50, points[0].x + 100, points[0].y - 30,
 						points[0].x - 40, points[0].y + 60);
 				return polygon;
 			}

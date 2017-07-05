@@ -10,11 +10,9 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.Line;
 import org.eclipse.gef.geometry.planar.Point;
 import org.eclipse.gef.geometry.planar.Rectangle;
@@ -22,6 +20,9 @@ import org.eclipse.gef.geometry.planar.Region;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class RegionOutlineExample extends AbstractExample {
 	public static void main(String[] args) {
@@ -59,8 +60,7 @@ public class RegionOutlineExample extends AbstractExample {
 				Region region = getShape();
 
 				gc.setAlpha(128);
-				gc.setBackground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_BLUE));
+				gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_BLUE));
 				for (Rectangle r : region.getShapes()) {
 					gc.fillRectangle(Geometry2SWT.toSWTRectangle(r));
 				}
@@ -71,11 +71,9 @@ public class RegionOutlineExample extends AbstractExample {
 				// for (Rectangle r : region.getShapes()) {
 				// gc.drawRectangle(r.toSWTRectangle());
 				// }
-				gc.setForeground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_BLACK));
+				gc.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_BLACK));
 				for (Line l : region.getOutlineSegments()) {
-					gc.drawLine((int) (l.getX1()), (int) (l.getY1()),
-							(int) (l.getX2()), (int) (l.getY2()));
+					gc.drawLine((int) (l.getX1()), (int) (l.getY1()), (int) (l.getX2()), (int) (l.getY2()));
 				}
 			}
 		} };

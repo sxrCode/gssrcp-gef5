@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.intersection;
+package com.gss.rcp.examples.gef5.geometry.intersection;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.Ellipse;
@@ -20,8 +20,7 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Display;
 
-public class EllipseEllipseIntersection
-		extends AbstractEllipseIntersectionExample {
+public class EllipseEllipseIntersection extends AbstractEllipseIntersectionExample {
 
 	/**
 	 * @param args
@@ -40,8 +39,7 @@ public class EllipseEllipseIntersection
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {
@@ -57,16 +55,14 @@ public class EllipseEllipseIntersection
 				Point[] points = getControlPoints();
 				double a = Math.abs(points[0].x - points[1].x);
 				double b = Math.abs(points[0].y - points[2].y);
-				return new Ellipse(points[0].x - a, points[0].y - b, 2 * a,
-						2 * b);
+				return new Ellipse(points[0].x - a, points[0].y - b, 2 * a, 2 * b);
 			}
 
 			@Override
 			public void drawShape(GC gc) {
 				Ellipse ellipse = createGeometry();
-				gc.drawPath(
-						new org.eclipse.swt.graphics.Path(Display.getCurrent(),
-								Geometry2SWT.toSWTPathData(ellipse.toPath())));
+				gc.drawPath(new org.eclipse.swt.graphics.Path(Display.getCurrent(),
+						Geometry2SWT.toSWTPathData(ellipse.toPath())));
 			}
 		};
 	}

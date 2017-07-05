@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.scalerotate;
+package com.gss.rcp.examples.gef5.geometry.scalerotate;
 
 import org.eclipse.gef.geometry.euclidean.Angle;
 import org.eclipse.gef.geometry.euclidean.Vector;
@@ -30,8 +30,8 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 
-public abstract class AbstractScaleRotateExample implements PaintListener,
-		MouseWheelListener, MouseMoveListener, MouseListener, Listener {
+public abstract class AbstractScaleRotateExample
+		implements PaintListener, MouseWheelListener, MouseMoveListener, MouseListener, Listener {
 
 	// TODO: The new angle interface is easier to use and should be used here!
 
@@ -55,8 +55,7 @@ public abstract class AbstractScaleRotateExample implements PaintListener,
 		}
 
 		public Point getCenter() {
-			return new Point(canvas.getClientArea().width / 2,
-					canvas.getClientArea().height / 2);
+			return new Point(canvas.getClientArea().width / 2, canvas.getClientArea().height / 2);
 		}
 
 		public Angle getRotationAngle() {
@@ -83,8 +82,7 @@ public abstract class AbstractScaleRotateExample implements PaintListener,
 		shell = new Shell(display, SWT.SHELL_TRIM | SWT.DOUBLE_BUFFERED);
 		shell.setText(title);
 		shell.setBounds(0, 0, 640, 480);
-		shell.setBackground(
-				Display.getCurrent().getSystemColor(SWT.COLOR_WHITE));
+		shell.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_WHITE));
 
 		// open the shell before creating the controllable shapes so that their
 		// default coordinates are not changed due to the resize of their canvas
@@ -138,8 +136,7 @@ public abstract class AbstractScaleRotateExample implements PaintListener,
 		if (dragBegin != null) {
 			Point center = shape.getCenter();
 			Vector toMouse = new Vector(center, new Point(e.x, e.y));
-			shape.rotationAngle = dragBegin.getAngleCW(toMouse)
-					.getAdded(dragBeginAngle);
+			shape.rotationAngle = dragBegin.getAngleCW(toMouse).getAdded(dragBeginAngle);
 			shell.redraw();
 		}
 	}
@@ -159,8 +156,7 @@ public abstract class AbstractScaleRotateExample implements PaintListener,
 	@Override
 	public void paintControl(PaintEvent e) {
 		e.gc.setAntialias(SWT.ON);
-		e.gc.setBackground(
-				Display.getCurrent().getSystemColor(GEOMETRY_FILL_COLOR));
+		e.gc.setBackground(Display.getCurrent().getSystemColor(GEOMETRY_FILL_COLOR));
 		shape.draw(e.gc);
 	}
 }

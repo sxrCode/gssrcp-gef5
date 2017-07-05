@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.intersection;
+package com.gss.rcp.examples.gef5.geometry.intersection;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.Ellipse;
@@ -27,8 +27,7 @@ import org.eclipse.swt.widgets.Canvas;
  * @author Matthias Wienand (matthias.wienand@itemis.de)
  * 
  */
-public class EllipseLineIntersection
-		extends AbstractEllipseIntersectionExample {
+public class EllipseLineIntersection extends AbstractEllipseIntersectionExample {
 
 	public static void main(String[] args) {
 		new EllipseLineIntersection();
@@ -44,8 +43,7 @@ public class EllipseLineIntersection
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {

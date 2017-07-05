@@ -10,11 +10,9 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.Point;
 import org.eclipse.gef.geometry.planar.Polygon;
 import org.eclipse.gef.geometry.planar.Polyline;
@@ -22,6 +20,9 @@ import org.eclipse.gef.geometry.planar.Ring;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class RingClippingExample extends AbstractExample {
 	public static void main(String[] args) {
@@ -36,19 +37,15 @@ public class RingClippingExample extends AbstractExample {
 	protected ControllableShape[] getControllableShapes() {
 		return new ControllableShape[] { new ControllableShape() {
 			{
-				addControlPoints(new Point(100, 100), new Point(200, 100),
-						new Point(100, 200));
-				addControlPoints(new Point(300, 300), new Point(400, 200),
-						new Point(400, 300));
-				addControlPoints(new Point(250, 50), new Point(450, 75),
-						new Point(300, 125));
+				addControlPoints(new Point(100, 100), new Point(200, 100), new Point(100, 200));
+				addControlPoints(new Point(300, 300), new Point(400, 200), new Point(400, 300));
+				addControlPoints(new Point(250, 50), new Point(450, 75), new Point(300, 125));
 			}
 
 			@Override
 			public Ring getShape() {
 				Point[] cp = getPoints();
-				Ring ring = new Ring(new Polygon(cp[0], cp[1], cp[2]),
-						new Polygon(cp[3], cp[4], cp[5]),
+				Ring ring = new Ring(new Polygon(cp[0], cp[1], cp[2]), new Polygon(cp[3], cp[4], cp[5]),
 						new Polygon(cp[6], cp[7], cp[8]));
 				return ring;
 			}
@@ -58,8 +55,7 @@ public class RingClippingExample extends AbstractExample {
 				Ring ring = getShape();
 
 				gc.setClipping(Geometry2SWT.toSWTRegion(ring));
-				gc.setBackground(Display.getCurrent()
-						.getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+				gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 				for (int y = 0; y < 800; y += 20) {
 					gc.drawString(
 							"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz",
@@ -68,8 +64,7 @@ public class RingClippingExample extends AbstractExample {
 
 				gc.setClipping((org.eclipse.swt.graphics.Region) null);
 				gc.setAlpha(128);
-				gc.setBackground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_BLUE));
+				gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_BLUE));
 				for (Polyline p : ring.getOutlines()) {
 					gc.fillPolygon(Geometry2SWT.toSWTPointArray(p));
 				}

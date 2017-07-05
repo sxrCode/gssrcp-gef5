@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.containment;
+package com.gss.rcp.examples.gef5.geometry.containment;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.Ellipse;
@@ -41,8 +41,7 @@ public class EllipseLineContainment extends AbstractEllipseContainmentExample {
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {

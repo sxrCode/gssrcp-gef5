@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.containment;
+package com.gss.rcp.examples.gef5.geometry.containment;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.CubicCurve;
@@ -22,8 +22,7 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Display;
 
-public class PolygonCubicCurveContainment
-		extends AbstractPolygonContainmentExample {
+public class PolygonCubicCurveContainment extends AbstractPolygonContainmentExample {
 
 	public static void main(String[] args) {
 		new PolygonCubicCurveContainment("Polygon / Cubic Curve - Containment");
@@ -44,8 +43,7 @@ public class PolygonCubicCurveContainment
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {
@@ -63,9 +61,8 @@ public class PolygonCubicCurveContainment
 			@Override
 			public void drawShape(GC gc) {
 				CubicCurve c = createGeometry();
-				gc.drawPath(
-						new org.eclipse.swt.graphics.Path(Display.getCurrent(),
-								Geometry2SWT.toSWTPathData(c.toPath())));
+				gc.drawPath(new org.eclipse.swt.graphics.Path(Display.getCurrent(),
+						Geometry2SWT.toSWTPathData(c.toPath())));
 			}
 
 			@Override

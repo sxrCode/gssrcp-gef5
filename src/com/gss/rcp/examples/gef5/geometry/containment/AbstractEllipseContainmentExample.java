@@ -10,22 +10,20 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.containment;
+package com.gss.rcp.examples.gef5.geometry.containment;
 
 import org.eclipse.gef.geometry.planar.Ellipse;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Canvas;
 
-public abstract class AbstractEllipseContainmentExample
-		extends AbstractContainmentExample {
+public abstract class AbstractEllipseContainmentExample extends AbstractContainmentExample {
 
 	public AbstractEllipseContainmentExample(String title) {
 		super(title);
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape1(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape1(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {
@@ -42,8 +40,8 @@ public abstract class AbstractEllipseContainmentExample
 			@Override
 			public void drawShape(GC gc) {
 				Ellipse ellipse = createGeometry();
-				gc.drawOval((int) ellipse.getX(), (int) ellipse.getY(),
-						(int) ellipse.getWidth(), (int) ellipse.getHeight());
+				gc.drawOval((int) ellipse.getX(), (int) ellipse.getY(), (int) ellipse.getWidth(),
+						(int) ellipse.getHeight());
 			}
 		};
 	}

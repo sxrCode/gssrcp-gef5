@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.intersection;
+package com.gss.rcp.examples.gef5.geometry.intersection;
 
 import org.eclipse.gef.geometry.planar.Ellipse;
 import org.eclipse.gef.geometry.planar.IGeometry;
@@ -19,8 +19,7 @@ import org.eclipse.gef.geometry.planar.Polygon;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Canvas;
 
-public class PolygonEllipseIntersection
-		extends AbstractPolygonIntersectionExample {
+public class PolygonEllipseIntersection extends AbstractPolygonIntersectionExample {
 
 	/**
 	 * @param args
@@ -35,13 +34,11 @@ public class PolygonEllipseIntersection
 
 	@Override
 	protected Point[] computeIntersections(IGeometry g1, IGeometry g2) {
-		return ((Polygon) g1).getOutline()
-				.getIntersections(((Ellipse) g2).getOutline());
+		return ((Polygon) g1).getOutline().getIntersections(((Ellipse) g2).getOutline());
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {
@@ -57,15 +54,14 @@ public class PolygonEllipseIntersection
 				Point[] points = getControlPoints();
 				double a = Math.abs(points[0].x - points[1].x);
 				double b = Math.abs(points[0].y - points[2].y);
-				return new Ellipse(points[0].x - a, points[0].y - b, 2 * a,
-						2 * b);
+				return new Ellipse(points[0].x - a, points[0].y - b, 2 * a, 2 * b);
 			}
 
 			@Override
 			public void drawShape(GC gc) {
 				Ellipse ellipse = createGeometry();
-				gc.drawOval((int) ellipse.getX(), (int) ellipse.getY(),
-						(int) ellipse.getWidth(), (int) ellipse.getHeight());
+				gc.drawOval((int) ellipse.getX(), (int) ellipse.getY(), (int) ellipse.getWidth(),
+						(int) ellipse.getHeight());
 			}
 		};
 	}

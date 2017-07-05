@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.scalerotate;
+package com.gss.rcp.examples.gef5.geometry.scalerotate;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.Point;
@@ -45,10 +45,8 @@ public class PolygonScaleRotate extends AbstractScaleRotateExample {
 				double w5 = w / 5;
 				double h5 = h / 5;
 
-				Polygon me = new Polygon(new Point(w2 - w5, h2 - h5),
-						new Point(w2 + w5, h2 - h5),
-						new Point(w2 + w5, h2 + h5),
-						new Point(w2 - w5, h2 + h5));
+				Polygon me = new Polygon(new Point(w2 - w5, h2 - h5), new Point(w2 + w5, h2 - h5),
+						new Point(w2 + w5, h2 + h5), new Point(w2 - w5, h2 + h5));
 
 				me.rotateCW(getRotationAngle(), getCenter());
 				me.scale(getZoomFactor(), getCenter());

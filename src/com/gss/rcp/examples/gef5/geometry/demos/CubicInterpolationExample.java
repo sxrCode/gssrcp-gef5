@@ -10,11 +10,9 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.Point;
 import org.eclipse.gef.geometry.planar.PolyBezier;
 import org.eclipse.swt.SWT;
@@ -23,6 +21,9 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Slider;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class CubicInterpolationExample extends AbstractExample {
 
@@ -41,23 +42,19 @@ public class CubicInterpolationExample extends AbstractExample {
 		return new ControllableShape[] { new ControllableShape() {
 			{
 				/*
-				 * These are the anchor points for the cubic Bezier
-				 * interpolation.
+				 * These are the anchor points for the cubic Bezier interpolation.
 				 */
-				addControlPoints(new Point(100, 200), new Point(150, 250),
-						new Point(200, 150), new Point(250, 250),
-						new Point(300, 150), new Point(350, 250),
-						new Point(400, 200));
+				addControlPoints(new Point(100, 200), new Point(150, 250), new Point(200, 150), new Point(250, 250),
+						new Point(300, 150), new Point(350, 250), new Point(400, 200));
 			}
 
 			@Override
 			public PolyBezier getShape() {
 				/*
-				 * Constructs the cubic Bezier interpolation through the defined
-				 * anchor points as a PolyBezier.
+				 * Constructs the cubic Bezier interpolation through the defined anchor points
+				 * as a PolyBezier.
 				 */
-				return PolyBezier.interpolateCubic(curveWidthCoefficient,
-						getPoints());
+				return PolyBezier.interpolateCubic(curveWidthCoefficient, getPoints());
 			}
 
 			@Override
@@ -70,9 +67,8 @@ public class CubicInterpolationExample extends AbstractExample {
 				PolyBezier curve = getShape();
 
 				// display it as an SWT Path
-				gc.drawPath(
-						new org.eclipse.swt.graphics.Path(Display.getCurrent(),
-								Geometry2SWT.toSWTPathData(curve.toPath())));
+				gc.drawPath(new org.eclipse.swt.graphics.Path(Display.getCurrent(),
+						Geometry2SWT.toSWTPathData(curve.toPath())));
 			}
 		} };
 	}
@@ -80,9 +76,9 @@ public class CubicInterpolationExample extends AbstractExample {
 	@Override
 	public void onInit() {
 		/*
-		 * Creates the slider to be able to change the curve width coefficient
-		 * used to construct the cubic Bezier interpolation through the later-on
-		 * defined anchor points. (Just SWT buzz.)
+		 * Creates the slider to be able to change the curve width coefficient used to
+		 * construct the cubic Bezier interpolation through the later-on defined anchor
+		 * points. (Just SWT buzz.)
 		 */
 		curveWidthCoefficient = 1;
 

@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.intersection;
+package com.gss.rcp.examples.gef5.geometry.intersection;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.CubicCurve;
@@ -30,8 +30,7 @@ import org.eclipse.swt.widgets.Display;
  * @author Matthias Wienand (matthias.wienand@itemis.de)
  * 
  */
-public class PolygonCubicCurveIntersection
-		extends AbstractPolygonIntersectionExample {
+public class PolygonCubicCurveIntersection extends AbstractPolygonIntersectionExample {
 
 	public static void main(String[] args) {
 		new PolygonCubicCurveIntersection();
@@ -47,8 +46,7 @@ public class PolygonCubicCurveIntersection
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {
@@ -61,18 +59,16 @@ public class PolygonCubicCurveIntersection
 			@Override
 			public CubicCurve createGeometry() {
 				Point[] controlPoints = getControlPoints();
-				System.out.println("new CubicCurve(" + controlPoints[0] + ", "
-						+ controlPoints[1] + ", " + controlPoints[2] + ", "
-						+ controlPoints[3] + ")");
+				System.out.println("new CubicCurve(" + controlPoints[0] + ", " + controlPoints[1] + ", "
+						+ controlPoints[2] + ", " + controlPoints[3] + ")");
 				return new CubicCurve(controlPoints);
 			}
 
 			@Override
 			public void drawShape(GC gc) {
 				CubicCurve c = createGeometry();
-				gc.drawPath(
-						new org.eclipse.swt.graphics.Path(Display.getCurrent(),
-								Geometry2SWT.toSWTPathData(c.toPath())));
+				gc.drawPath(new org.eclipse.swt.graphics.Path(Display.getCurrent(),
+						Geometry2SWT.toSWTPathData(c.toPath())));
 			}
 		};
 	}

@@ -10,17 +10,18 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.Point;
 import org.eclipse.gef.geometry.planar.Rectangle;
 import org.eclipse.gef.geometry.planar.Region;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class RegionClippingExample extends AbstractExample {
 	public static void main(String[] args) {
@@ -42,8 +43,7 @@ public class RegionClippingExample extends AbstractExample {
 			@Override
 			public Region getShape() {
 				Point[] cp = getPoints();
-				Region region = new Region(new Rectangle(cp[0], cp[1]),
-						new Rectangle(cp[2], cp[3]));
+				Region region = new Region(new Rectangle(cp[0], cp[1]), new Rectangle(cp[2], cp[3]));
 				return region;
 			}
 
@@ -53,8 +53,7 @@ public class RegionClippingExample extends AbstractExample {
 
 				gc.setClipping(Geometry2SWT.toSWTRegion(region));
 
-				gc.setBackground(Display.getCurrent()
-						.getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+				gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 				for (int y = 0; y < 800; y += 20) {
 					gc.drawString(
 							"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz",
@@ -64,8 +63,7 @@ public class RegionClippingExample extends AbstractExample {
 				gc.setClipping((org.eclipse.swt.graphics.Region) null);
 
 				gc.setAlpha(128);
-				gc.setBackground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_BLUE));
+				gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_BLUE));
 				for (Rectangle r : region.getShapes()) {
 					gc.fillRectangle(Geometry2SWT.toSWTRectangle(r));
 				}

@@ -10,17 +10,18 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.BezierCurve;
 import org.eclipse.gef.geometry.planar.Point;
 import org.eclipse.gef.geometry.planar.Polyline;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class BezierApproximationExample extends AbstractExample {
 	public static void main(String[] args) {
@@ -36,13 +37,10 @@ public class BezierApproximationExample extends AbstractExample {
 		return new ControllableShape[] { new ControllableShape() {
 			{
 				/*
-				 * These are the control points used to construct the
-				 * BezierCurve below.
+				 * These are the control points used to construct the BezierCurve below.
 				 */
-				addControlPoints(new Point(100, 200), new Point(150, 250),
-						new Point(200, 150), new Point(250, 250),
-						new Point(300, 150), new Point(350, 250),
-						new Point(400, 200));
+				addControlPoints(new Point(100, 200), new Point(150, 250), new Point(200, 150), new Point(250, 250),
+						new Point(300, 150), new Point(350, 250), new Point(400, 200));
 			}
 
 			@Override
@@ -63,14 +61,12 @@ public class BezierApproximationExample extends AbstractExample {
 				BezierCurve curve = getShape();
 
 				// Display the BezierCurve as a Path.
-				gc.drawPath(
-						new org.eclipse.swt.graphics.Path(Display.getCurrent(),
-								Geometry2SWT.toSWTPathData(curve.toPath())));
+				gc.drawPath(new org.eclipse.swt.graphics.Path(Display.getCurrent(),
+						Geometry2SWT.toSWTPathData(curve.toPath())));
 
 				// Display the connection line of its control points.
 				gc.setLineStyle(SWT.LINE_DOT);
-				gc.drawPolyline(Geometry2SWT
-						.toSWTPointArray(new Polyline(curve.getPoints())));
+				gc.drawPolyline(Geometry2SWT.toSWTPointArray(new Polyline(curve.getPoints())));
 
 			}
 		} };

@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.containment;
+package com.gss.rcp.examples.gef5.geometry.containment;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.Ellipse;
@@ -20,8 +20,7 @@ import org.eclipse.gef.geometry.planar.Rectangle;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Canvas;
 
-public class EllipseRectangleContainment
-		extends AbstractEllipseContainmentExample {
+public class EllipseRectangleContainment extends AbstractEllipseContainmentExample {
 	public static void main(String[] args) {
 		new EllipseRectangleContainment();
 	}
@@ -41,8 +40,7 @@ public class EllipseRectangleContainment
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			private final double WIDTH = 50;
 			private final double HEIGHT = 75;
@@ -55,8 +53,7 @@ public class EllipseRectangleContainment
 			@Override
 			public Rectangle createGeometry() {
 				Point[] points = getControlPoints();
-				return new Rectangle(points[0].x - WIDTH / 2,
-						points[0].y - HEIGHT / 2, WIDTH, HEIGHT);
+				return new Rectangle(points[0].x - WIDTH / 2, points[0].y - HEIGHT / 2, WIDTH, HEIGHT);
 			}
 
 			@Override

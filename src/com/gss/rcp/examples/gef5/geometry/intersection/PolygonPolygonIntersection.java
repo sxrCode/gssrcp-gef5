@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.intersection;
+package com.gss.rcp.examples.gef5.geometry.intersection;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.IGeometry;
@@ -19,8 +19,7 @@ import org.eclipse.gef.geometry.planar.Polygon;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Canvas;
 
-public class PolygonPolygonIntersection
-		extends AbstractPolygonIntersectionExample {
+public class PolygonPolygonIntersection extends AbstractPolygonIntersectionExample {
 
 	public static void main(String[] args) {
 		new PolygonPolygonIntersection();
@@ -32,13 +31,11 @@ public class PolygonPolygonIntersection
 
 	@Override
 	protected Point[] computeIntersections(IGeometry g1, IGeometry g2) {
-		return ((Polygon) g1).getOutline()
-				.getIntersections(((Polygon) g2).getOutline());
+		return ((Polygon) g1).getOutline().getIntersections(((Polygon) g2).getOutline());
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
 		return new AbstractControllableShape(canvas) {
 			@Override
 			public void createControlPoints() {

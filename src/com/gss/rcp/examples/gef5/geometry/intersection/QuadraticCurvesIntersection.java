@@ -10,7 +10,7 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.intersection;
+package com.gss.rcp.examples.gef5.geometry.intersection;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
 import org.eclipse.gef.geometry.planar.IGeometry;
@@ -22,8 +22,7 @@ import org.eclipse.swt.widgets.Display;
 
 public class QuadraticCurvesIntersection extends AbstractIntersectionExample {
 	public static void main(String[] args) {
-		new QuadraticCurvesIntersection(
-				"Quadratic Bezier Curve/Curve Intersection");
+		new QuadraticCurvesIntersection("Quadratic Bezier Curve/Curve Intersection");
 	}
 
 	public QuadraticCurvesIntersection(String title) {
@@ -35,8 +34,7 @@ public class QuadraticCurvesIntersection extends AbstractIntersectionExample {
 		return ((QuadraticCurve) g1).getIntersections((QuadraticCurve) g2);
 	}
 
-	private AbstractControllableShape createControllableQuadraticBezierCurveShape(
-			Canvas canvas, Point... points) {
+	private AbstractControllableShape createControllableQuadraticBezierCurveShape(Canvas canvas, Point... points) {
 		final Point start = points[0];
 		final Point ctrl = points[1];
 		final Point end = points[2];
@@ -58,24 +56,21 @@ public class QuadraticCurvesIntersection extends AbstractIntersectionExample {
 			public void drawShape(GC gc) {
 				QuadraticCurve curve = (QuadraticCurve) createGeometry();
 
-				gc.drawPath(
-						new org.eclipse.swt.graphics.Path(Display.getCurrent(),
-								Geometry2SWT.toSWTPathData(curve.toPath())));
+				gc.drawPath(new org.eclipse.swt.graphics.Path(Display.getCurrent(),
+						Geometry2SWT.toSWTPathData(curve.toPath())));
 			}
 		};
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape1(
-			Canvas canvas) {
-		return createControllableQuadraticBezierCurveShape(canvas,
-				new Point(100, 100), new Point(300, 150), new Point(400, 400));
+	protected AbstractControllableShape createControllableShape1(Canvas canvas) {
+		return createControllableQuadraticBezierCurveShape(canvas, new Point(100, 100), new Point(300, 150),
+				new Point(400, 400));
 	}
 
 	@Override
-	protected AbstractControllableShape createControllableShape2(
-			Canvas canvas) {
-		return createControllableQuadraticBezierCurveShape(canvas,
-				new Point(400, 100), new Point(310, 290), new Point(100, 400));
+	protected AbstractControllableShape createControllableShape2(Canvas canvas) {
+		return createControllableQuadraticBezierCurveShape(canvas, new Point(400, 100), new Point(310, 290),
+				new Point(100, 400));
 	}
 }

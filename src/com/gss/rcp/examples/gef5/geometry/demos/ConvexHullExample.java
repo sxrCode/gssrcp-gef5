@@ -10,15 +10,16 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.Point;
 import org.eclipse.gef.geometry.planar.Polygon;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class ConvexHullExample extends AbstractExample {
 
@@ -36,10 +37,8 @@ public class ConvexHullExample extends AbstractExample {
 			{
 				// These are the points which are displayed on the screen.
 				// We will compute their convex hull later.
-				addControlPoints(new Point(100, 100), new Point(150, 400),
-						new Point(200, 300), new Point(250, 150),
-						new Point(300, 250), new Point(350, 200),
-						new Point(400, 350));
+				addControlPoints(new Point(100, 100), new Point(150, 400), new Point(200, 300), new Point(250, 150),
+						new Point(300, 250), new Point(350, 200), new Point(400, 350));
 			}
 
 			@Override
@@ -57,8 +56,7 @@ public class ConvexHullExample extends AbstractExample {
 				Polygon convexHull = getShape();
 
 				// Display the convex hull as an SWT Path.
-				gc.drawPath(new org.eclipse.swt.graphics.Path(
-						Display.getCurrent(),
+				gc.drawPath(new org.eclipse.swt.graphics.Path(Display.getCurrent(),
 						Geometry2SWT.toSWTPathData(convexHull.toPath())));
 			}
 		} };

@@ -10,14 +10,12 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.BezierCurve;
 import org.eclipse.gef.geometry.planar.CurvedPolygon;
 import org.eclipse.gef.geometry.planar.IGeometry;
@@ -26,6 +24,9 @@ import org.eclipse.gef.geometry.planar.QuadraticCurve;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class CurvedPolygonExample extends AbstractExample {
 
@@ -55,12 +56,10 @@ public class CurvedPolygonExample extends AbstractExample {
 				segs.add(new QuadraticCurve(points[0], points[1], points[2]));
 				for (int i = 2; i < points.length; i += 2) {
 					if (i == points.length - 2) {
-						segs.add(new QuadraticCurve(points[i], points[i + 1],
-								points[0]));
+						segs.add(new QuadraticCurve(points[i], points[i + 1], points[0]));
 						break;
 					}
-					segs.add(new QuadraticCurve(points[i], points[i + 1],
-							points[i + 2]));
+					segs.add(new QuadraticCurve(points[i], points[i + 1], points[i + 2]));
 				}
 				return new CurvedPolygon(segs.toArray(new QuadraticCurve[] {}));
 			}
@@ -70,8 +69,7 @@ public class CurvedPolygonExample extends AbstractExample {
 				CurvedPolygon curvedPoly = getShape();
 
 				for (BezierCurve c : curvedPoly.getOutlineSegments()) {
-					gc.drawPath(new org.eclipse.swt.graphics.Path(
-							Display.getCurrent(),
+					gc.drawPath(new org.eclipse.swt.graphics.Path(Display.getCurrent(),
 							Geometry2SWT.toSWTPathData(c.toPath())));
 				}
 			}
@@ -88,8 +86,8 @@ public class CurvedPolygonExample extends AbstractExample {
 
 			@Override
 			public void onDraw(GC gc) {
-				this.controlColor = viewer.getShapes()[0].getShape().contains(
-						getPoints()[0]) ? SWT.COLOR_GREEN : SWT.COLOR_RED;
+				this.controlColor = viewer.getShapes()[0].getShape().contains(getPoints()[0]) ? SWT.COLOR_GREEN
+						: SWT.COLOR_RED;
 			}
 		} };
 	}

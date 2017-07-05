@@ -10,16 +10,17 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.Point;
 import org.eclipse.gef.geometry.planar.Polygon;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class TriangulationExample extends AbstractExample {
 	public static void main(String[] args) {
@@ -34,15 +35,9 @@ public class TriangulationExample extends AbstractExample {
 	protected ControllableShape[] getControllableShapes() {
 		return new ControllableShape[] { new ControllableShape() {
 			{
-				addControlPoints(new Point(300 / 2, 100 / 2),
-						new Point(100 / 2, 200 / 2),
-						new Point(200 / 2, 300 / 2),
-						new Point(100 / 2, 500 / 2),
-						new Point(300 / 2, 400 / 2),
-						new Point(500 / 2, 600 / 2),
-						new Point(600 / 2, 300 / 2),
-						new Point(500 / 2, 400 / 2),
-						new Point(500 / 2, 200 / 2),
+				addControlPoints(new Point(300 / 2, 100 / 2), new Point(100 / 2, 200 / 2), new Point(200 / 2, 300 / 2),
+						new Point(100 / 2, 500 / 2), new Point(300 / 2, 400 / 2), new Point(500 / 2, 600 / 2),
+						new Point(600 / 2, 300 / 2), new Point(500 / 2, 400 / 2), new Point(500 / 2, 200 / 2),
 						new Point(300 / 2, 200 / 2));
 			}
 
@@ -58,8 +53,7 @@ public class TriangulationExample extends AbstractExample {
 
 				// System.out.println("p = " + p);
 
-				gc.setForeground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_RED));
+				gc.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
 
 				Polygon[] triangulation;
 				try {
@@ -73,8 +67,7 @@ public class TriangulationExample extends AbstractExample {
 
 				int lineWidth = gc.getLineWidth();
 				gc.setLineWidth(lineWidth + 2);
-				gc.setForeground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_BLACK));
+				gc.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_BLACK));
 
 				gc.drawPolygon(Geometry2SWT.toSWTPointArray(p));
 

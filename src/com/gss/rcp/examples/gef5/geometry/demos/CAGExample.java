@@ -10,12 +10,9 @@
  *     Matthias Wienand (itemis AG) - initial API and implementation
  *     
  *******************************************************************************/
-package org.eclipse.gef.geometry.examples.demos;
+package com.gss.rcp.examples.gef5.geometry.demos;
 
 import org.eclipse.gef.geometry.convert.swt.Geometry2SWT;
-import org.eclipse.gef.geometry.examples.AbstractExample;
-import org.eclipse.gef.geometry.examples.ControlPoint;
-import org.eclipse.gef.geometry.examples.ControllableShape;
 import org.eclipse.gef.geometry.planar.Ellipse;
 import org.eclipse.gef.geometry.planar.IGeometry;
 import org.eclipse.gef.geometry.planar.Path;
@@ -24,6 +21,10 @@ import org.eclipse.gef.geometry.planar.Polygon;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
+
+import com.gss.rcp.examples.gef5.geometry.AbstractExample;
+import com.gss.rcp.examples.gef5.geometry.ControlPoint;
+import com.gss.rcp.examples.gef5.geometry.ControllableShape;
 
 public class CAGExample extends AbstractExample {
 
@@ -41,8 +42,7 @@ public class CAGExample extends AbstractExample {
 	protected ControllableShape[] getControllableShapes() {
 		return new ControllableShape[] { csTriangle = new ControllableShape() {
 			{
-				addControlPoints(new Point(100, 150), new Point(350, 120),
-						new Point(200, 300));
+				addControlPoints(new Point(100, 150), new Point(350, 120), new Point(200, 300));
 			}
 
 			@Override
@@ -64,8 +64,7 @@ public class CAGExample extends AbstractExample {
 				Point[] points = getPoints();
 				double a = Math.abs(points[0].x - points[1].x);
 				double b = Math.abs(points[0].y - points[1].y);
-				return new Ellipse(points[0].x - a, points[0].y - b, 2 * a,
-						2 * b);
+				return new Ellipse(points[0].x - a, points[0].y - b, 2 * a, 2 * b);
 			}
 
 			@Override
@@ -90,8 +89,7 @@ public class CAGExample extends AbstractExample {
 			}
 
 			private org.eclipse.swt.graphics.Path makeSWTPath(Path p) {
-				return new org.eclipse.swt.graphics.Path(Display.getCurrent(),
-						Geometry2SWT.toSWTPathData(p));
+				return new org.eclipse.swt.graphics.Path(Display.getCurrent(), Geometry2SWT.toSWTPathData(p));
 			}
 
 			@Override
@@ -100,16 +98,13 @@ public class CAGExample extends AbstractExample {
 				Path ellipsePath = csEllipse.getShape().toPath();
 				Path intersection = Path.intersect(trianglePath, ellipsePath);
 
-				gc.setBackground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_RED));
+				gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
 				gc.fillPath(makeSWTPath(trianglePath));
 
-				gc.setBackground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_GREEN));
+				gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_GREEN));
 				gc.fillPath(makeSWTPath(ellipsePath));
 
-				gc.setBackground(
-						Display.getCurrent().getSystemColor(SWT.COLOR_YELLOW));
+				gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_YELLOW));
 				gc.fillPath(makeSWTPath(intersection));
 			}
 		} };
