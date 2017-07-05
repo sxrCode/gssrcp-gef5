@@ -390,4 +390,17 @@ public class MvcLogoExample extends AbstractMvcExample {
 		getPrimaryStage().sizeToScene();
 	}
 
+	/**
+	 * 提供一个已经画好的 Scene
+	 * 
+	 * @return
+	 */
+	public Scene provideScene() {
+		Scene scene = new Scene(
+				new MvcLogoExampleViewersComposite(getContentViewer(), getPaletteViewer()).getComposite());
+		getDomain().activate();
+		populateViewerContents();
+		return scene;
+	}
+
 }

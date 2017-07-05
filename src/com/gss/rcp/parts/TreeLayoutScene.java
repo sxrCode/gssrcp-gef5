@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.text.html.parser.ContentModel;
-
-import org.eclipse.gef4.common.adapt.AdapterKey;
-import org.eclipse.gef4.graph.Edge;
-import org.eclipse.gef4.graph.Graph;
-import org.eclipse.gef4.layout.algorithms.TreeLayoutAlgorithm;
-import org.eclipse.gef4.mvc.fx.domain.FXDomain;
-import org.eclipse.gef4.mvc.fx.viewer.FXViewer;
-import org.eclipse.gef4.zest.fx.ZestFxModule;
-import org.eclipse.gef4.zest.fx.ZestProperties;
-import org.eclipse.osgi.container.Module;
+import org.eclipse.gef.common.adapt.AdapterKey;
+import org.eclipse.gef.graph.Edge;
+import org.eclipse.gef.graph.Edge.Builder;
+import org.eclipse.gef.graph.Graph;
+import org.eclipse.gef.graph.Node;
+import org.eclipse.gef.layout.algorithms.SpringLayoutAlgorithm;
+import org.eclipse.gef.mvc.fx.domain.IDomain;
+import org.eclipse.gef.mvc.fx.viewer.IViewer;
+import org.eclipse.gef.zest.fx.ZestFxModule;
+import org.eclipse.gef.zest.fx.ZestProperties;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Module;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -34,7 +34,7 @@ public class TreeLayoutScene {
 		return Integer.toString(id++);
 	}
 
-	protected static Edge makeEdge(Node n, Node m, Object... attr) {
+	protected static Edge e(org.eclipse.gef.graph.Node n, org.eclipse.gef.graph.Node m, Object... attr) {
 		String label = (String) n.attributesProperty().get(LABEL) + (String) m.attributesProperty().get(LABEL);
 		Builder builder = new Edge.Builder(n, m).attr(LABEL, label).attr(ID, genId());
 		for (int i = 0; i < attr.length; i += 2) {
@@ -43,15 +43,14 @@ public class TreeLayoutScene {
 		return builder.buildEdge();
 	}
 
-	protected static Edge e(Graph graph, Node n, Node m, Object... attr) {
-		Edge edge = makeEdge(n, m, attr);
-		edge.setGraph(graph);
+	protected static Edge e(Graph graph, org.eclipse.gef.graph.Node n, org.eclipse.gef.graph.Node m, Object... attr) {
+		Edge edge = e(n, m, attr);
 		graph.getEdges().add(edge);
 		return edge;
 	}
 
-	protected static Node makeNode(Object... attr) {
-		org.eclipse.gef4.graph.Node.Builder builder = new org.eclipse.gef4.graph.Node.Builder();
+	protected static org.eclipse.gef.graph.Node n(Object... attr) {
+		org.eclipse.gef.graph.Node.Builder builder = new org.eclipse.gef.graph.Node.Builder();
 		String id = genId();
 		builder.attr(ID, id).attr(LABEL, id);
 		for (int i = 0; i < attr.length; i += 2) {
@@ -60,25 +59,27 @@ public class TreeLayoutScene {
 		return builder.buildNode();
 	}
 
-	protected static Node makeNode(Graph graph, Object... attr) {
-		Node node = makeNode(attr);
-		node.setGraph(graph);
+	protected static org.eclipse.gef.graph.Node n(Graph graph, Object... attr) {
+		Node node = n(attr);
 		graph.getNodes().add(node);
 		return node;
 	}
 
-	protected FXDomain domain;
-	protected FXViewer viewer;
+	protected IDomain domain;
+	protected IViewer viewer;
 	protected Graph graph;
 
 	public TreeLayoutScene() {
+		// configure application
 		Injector injector = Guice.createInjector(createModule());
-		domain = injector.getInstance(FXDomain.class);
-		viewer = domain.getAdapter(AdapterKey.get(FXViewer.class, FXDomain.CONTENT_VIEWER_ROLE));
+		domain = injector.getInstance(IDomain.class);
+		viewer = domain.getAdapter(AdapterKey.get(IViewer.class, IDomain.CONTENT_VIEWER_ROLE));
+		domain.activate();
 	}
 
 	protected Module createModule() {
 		return new ZestFxModule();
+
 	}
 
 	protected Graph createGraph() {
@@ -86,46 +87,32 @@ public class TreeLayoutScene {
 		List<Node> nodes = new ArrayList<>();
 		List<Edge> edges = new ArrayList<>();
 
-		Node root = makeNode(LABEL, "Root");
+		Node root = n(LABEL, "Root");
 		nodes.add(root);
 		for (int i = 0; i < 3; i++) {
-			Node n = makeNode(LABEL, "1 - " + i);
+			Node n = n(LABEL, "1 - " + i);
 			nodes.add(n);
 			for (int j = 0; j < 3; j++) {
 				// make these nodes differ via their ids (as the labels are
 				// identical)
-				Node n2 = makeNode(ID, i + "-" + j, LABEL, "2 - " + j);
+				Node n2 = n(ID, i + "-" + j, LABEL, "2 - " + j);
 				nodes.add(n2);
-				Edge e = makeEdge(n, n2);
+				Edge e = e(n, n2);
 				edges.add(e);
 			}
-			edges.add(makeEdge(root, n));
+			edges.add(e(root, n));
 		}
 		return new Graph.Builder().nodes(nodes.toArray(new Node[] {})).edges(edges.toArray(new Edge[] {}))
-				.attr(ZestProperties.LAYOUT_ALGORITHM__G, new TreeLayoutAlgorithm()).build();
+				.attr(ZestProperties.LAYOUT_ALGORITHM__G, new SpringLayoutAlgorithm()).build();
 
 	}
 
 	public Scene getScene() {
 		Scene scene = new Scene(viewer.getCanvas());
-		// Job job = new Job("time") {
-		//
-		// @Override
-		// protected IStatus run(IProgressMonitor monitor) {
-		// graph = createGraph();
-		// viewer.getAdapter(ContentModel.class).getContents().setAll(Collections.singletonList(graph));
-		// return Status.OK_STATUS;
-		// }
-		//
-		// };
-		//
-		// job.schedule();
-
 		Platform.runLater(() -> {
 			graph = createGraph();
-			viewer.getAdapter(ContentModel.class).getContents().setAll(Collections.singletonList(graph));
+			viewer.getContents().setAll(Collections.singletonList(graph));
 		});
-		domain.activate();
 		return scene;
 	}
 
