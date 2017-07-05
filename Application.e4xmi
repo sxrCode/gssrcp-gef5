@@ -3,7 +3,9 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.window.main" label="Eclipse 4 RCP Application" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.partstack.sample">
-        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.part.sample" contributionURI="bundleclass://gssrcp-gef5/gssrcpgef5.parts.SamplePart" label="Sample Part"/>
+        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.part.sample" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.SamplePart" label="Sample Part"/>
+        <children xsi:type="basic:Part" xmi:id="_WF9yEGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.PlattePart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.PlattePart"/>
+        <children xsi:type="basic:Part" xmi:id="_WZXPMGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.part.1"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
