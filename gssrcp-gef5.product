@@ -15,6 +15,15 @@
 
    <windowImages/>
 
+   <launcher>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
    <plugins>
       <plugin id="com.google.guava"/>
       <plugin id="com.google.inject"/>
@@ -74,9 +83,21 @@
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.gef.common"/>
+      <plugin id="org.eclipse.gef.fx"/>
+      <plugin id="org.eclipse.gef.fx.jface"/>
+      <plugin id="org.eclipse.gef.fx.swt"/>
       <plugin id="org.eclipse.gef.geometry"/>
       <plugin id="org.eclipse.gef.geometry.convert.fx"/>
+      <plugin id="org.eclipse.gef.geometry.convert.fx.source"/>
       <plugin id="org.eclipse.gef.geometry.convert.swt"/>
+      <plugin id="org.eclipse.gef.geometry.convert.swt.source"/>
+      <plugin id="org.eclipse.gef.graph"/>
+      <plugin id="org.eclipse.gef.layout"/>
+      <plugin id="org.eclipse.gef.mvc"/>
+      <plugin id="org.eclipse.gef.mvc.fx"/>
+      <plugin id="org.eclipse.gef.mvc.fx.compatibility.equinox" fragment="true"/>
+      <plugin id="org.eclipse.gef.zest.fx"/>
+      <plugin id="org.eclipse.gef.zest.fx.compatibility.equinox" fragment="true"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.databinding"/>
       <plugin id="org.eclipse.osgi"/>
