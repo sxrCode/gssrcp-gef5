@@ -74,7 +74,6 @@ public class TreeLayoutScene {
 		Injector injector = Guice.createInjector(createModule());
 		domain = injector.getInstance(IDomain.class);
 		viewer = domain.getAdapter(AdapterKey.get(IViewer.class, IDomain.CONTENT_VIEWER_ROLE));
-		domain.activate();
 	}
 
 	protected Module createModule() {
@@ -109,6 +108,7 @@ public class TreeLayoutScene {
 
 	public Scene getScene() {
 		Scene scene = new Scene(viewer.getCanvas());
+		domain.activate();
 		Platform.runLater(() -> {
 			graph = createGraph();
 			viewer.getContents().setAll(Collections.singletonList(graph));

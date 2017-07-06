@@ -3,19 +3,21 @@
 
 <product name="gssrcp-gef5" id="gssrcp-gef5.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
       <programArgs>-clearPersistedState
       </programArgs>
+      <vmArgs>-Xms256m 
+-Xmx2048m 
+-Dosgi.framework.extensions=org.eclipse.fx.osgi
+      </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
 
    <windowImages/>
-
 
    <launcher>
       <win useIco="false">
@@ -23,10 +25,8 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
       <plugin id="com.google.guava"/>
@@ -90,6 +90,7 @@
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.gef.common"/>
       <plugin id="org.eclipse.gef.dot"/>
+      <plugin id="org.eclipse.gef.dot.doc"/>
       <plugin id="org.eclipse.gef.fx"/>
       <plugin id="org.eclipse.gef.fx.jface"/>
       <plugin id="org.eclipse.gef.fx.swt"/>

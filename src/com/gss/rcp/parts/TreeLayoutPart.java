@@ -6,6 +6,7 @@ import org.eclipse.gef.fx.swt.canvas.FXCanvasEx;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
+
 public class TreeLayoutPart {
 
 	@PostConstruct
