@@ -2,6 +2,7 @@ package com.gss.rcp.parts;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.log4j.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
@@ -14,12 +15,11 @@ public class PlattePart {
 
 	@PostConstruct
 	public void createContent(Composite parent) {
-		System.out.println("FxtestPart createContent!");
-		FXCanvas fxCanvasEx = new FXCanvas(parent, SWT.NONE);
-		fxCanvasEx.setScene(createScene());
+		FXCanvas canvas = new FXCanvas(parent, SWT.NONE);
+		canvas.setScene(getScene());
 	}
-
-	private Scene createScene() {
+	
+	private Scene getScene() {
 		return new MvcLogoExample().provideScene();
 	}
 }
