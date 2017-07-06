@@ -66,7 +66,6 @@ public class CustomNodeExample extends AbstractZestExample {
 		@Override
 		protected void configure() {
 			super.configure();
-			bindIContentPartFactory();
 		}
 
 		protected void bindIContentPartFactory() {
