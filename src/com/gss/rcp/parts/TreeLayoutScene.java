@@ -10,6 +10,7 @@ import org.eclipse.gef.graph.Edge.Builder;
 import org.eclipse.gef.graph.Graph;
 import org.eclipse.gef.graph.Node;
 import org.eclipse.gef.layout.algorithms.SpringLayoutAlgorithm;
+import org.eclipse.gef.layout.algorithms.TreeLayoutAlgorithm;
 import org.eclipse.gef.mvc.fx.domain.IDomain;
 import org.eclipse.gef.mvc.fx.viewer.IViewer;
 import org.eclipse.gef.zest.fx.ZestFxModule;
@@ -102,7 +103,7 @@ public class TreeLayoutScene {
 			edges.add(e(root, n));
 		}
 		return new Graph.Builder().nodes(nodes.toArray(new Node[] {})).edges(edges.toArray(new Edge[] {}))
-				.attr(ZestProperties.LAYOUT_ALGORITHM__G, new SpringLayoutAlgorithm()).build();
+				.attr(ZestProperties.LAYOUT_ALGORITHM__G, new TreeLayoutAlgorithm()).build();
 
 	}
 

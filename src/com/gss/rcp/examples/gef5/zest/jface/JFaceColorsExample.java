@@ -132,7 +132,6 @@ public class JFaceColorsExample {
 				viewer.setInput(new Object());
 			}
 		});
-
 		viewer = new ZestContentViewer(new ZestFxJFaceModule());
 		viewer.createControl(shell, SWT.NONE);
 		viewer.setContentProvider(new MyContentProvider());
