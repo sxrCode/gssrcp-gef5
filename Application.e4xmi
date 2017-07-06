@@ -6,6 +6,7 @@
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.part.sample" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.SamplePart" label="Sample Part"/>
         <children xsi:type="basic:Part" xmi:id="_WF9yEGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.PlattePart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.PlattePart" label="PlattePart"/>
         <children xsi:type="basic:Part" xmi:id="_WZXPMGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.TreeLayoutPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.TreeLayoutPart" label="TreeLayoutPart"/>
+        <children xsi:type="basic:Part" xmi:id="_IIlTUGIXEeeznPI7HGDnnw" elementId="gssrcp-gef5.com.gss.rcp.parts.ZestPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.ZestPart" label="ZestPart"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
