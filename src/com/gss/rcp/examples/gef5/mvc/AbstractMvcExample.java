@@ -30,6 +30,7 @@ public abstract class AbstractMvcExample extends Application {
 
 	public AbstractMvcExample(String title) {
 		this.title = title;
+		this.domain = Guice.createInjector(createModule()).getInstance(IDomain.class);
 	}
 
 	protected abstract Module createModule();
@@ -55,9 +56,6 @@ public abstract class AbstractMvcExample extends Application {
 	@Override
 	public void start(final Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
-
-		// create domain using guice
-		this.domain = Guice.createInjector(createModule()).getInstance(IDomain.class);
 
 		// create viewers
 		hookViewers();

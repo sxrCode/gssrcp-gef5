@@ -41,6 +41,7 @@ import javafx.scene.effect.Effect;
 import javafx.scene.effect.Light.Distant;
 import javafx.scene.effect.Lighting;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class MvcLogoExample extends AbstractMvcExample {
 
@@ -387,7 +388,10 @@ public class MvcLogoExample extends AbstractMvcExample {
 	protected void populateViewerContents() {
 		getContentViewer().getContents().setAll(createContentViewerContents());
 		getPaletteViewer().getContents().setAll(createPaletteViewerContents());
-		getPrimaryStage().sizeToScene();
+		Stage stage = getPrimaryStage();
+		if (stage != null) {
+			stage.sizeToScene();
+		}
 	}
 
 	/**
