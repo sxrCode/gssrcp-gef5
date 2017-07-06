@@ -3,13 +3,14 @@
 
 <product name="gssrcp-gef5" id="gssrcp-gef5.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
       <programArgs>-clearPersistedState
       </programArgs>
-      <vmArgs>-Xms256m 
+      <vmArgs>-Xms512m 
 -Xmx2048m 
 -Dosgi.framework.extensions=org.eclipse.fx.osgi
       </vmArgs>
@@ -19,14 +20,17 @@
 
    <windowImages/>
 
-   <launcher>
+
+   <launcher name="gssrcp">
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="com.google.guava"/>
