@@ -37,19 +37,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Polyline;
 import javafx.scene.text.Text;
 
-
 public class ZestPart {
-	
+
 	private ZestContentViewer viewer = null;
 	private static final String ATTR_CUSTOM = "custom";
-	
+
 	@PostConstruct
 	public void createContent(Composite parent) {
 		System.out.println("ZestPart createContent!");
-		
 		Button button = new Button(parent, SWT.PUSH);
 		button.setText("Reload");
 		button.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				viewer.setInput(null);
 				viewer.setInput(new Object());
@@ -61,25 +60,26 @@ public class ZestPart {
 		viewer.setLabelProvider(new MyLabelProvider());
 		viewer.setLayoutAlgorithm(new SpringLayoutAlgorithm());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				System.out.println("Selection changed: " + (event.getSelection()));
 			}
 		});
 		viewer.setInput(new Object());
 	}
-	
+
 	class MyContentProvider implements IGraphContentProvider {
 		private Object input;
 
-		private  String first() {
+		private String first() {
 			return "First";
 		}
 
-		private  String second() {
+		private String second() {
 			return "Second";
 		}
 
-		private  String third() {
+		private String third() {
 			return "Third";
 		}
 
@@ -91,6 +91,7 @@ public class ZestPart {
 			return new Object[] { first(), second(), third() };
 		}
 
+		@Override
 		public Object[] getAdjacentNodes(Object entity) {
 			if (entity.equals(first())) {
 				return new Object[] { second() };
@@ -123,12 +124,14 @@ public class ZestPart {
 			return false;
 		}
 	}
-	
+
 	class MyLabelProvider extends LabelProvider implements IGraphAttributesProvider {
+		@Override
 		public Image getImage(Object element) {
 			return Display.getCurrent().getSystemImage(SWT.ICON_WARNING);
 		}
 
+		@Override
 		public String getText(Object element) {
 			if (element instanceof String) {
 				return element.toString();
@@ -159,7 +162,7 @@ public class ZestPart {
 			return null;
 		}
 	}
-	
+
 	class CustomContentPartFactory extends ZestFxContentPartFactory {
 		@Inject
 		private Injector injector;
@@ -180,13 +183,13 @@ public class ZestPart {
 			return super.createContentPart(content, contextMap);
 		}
 	}
-	
+
 	class CustomModule extends ZestFxJFaceModule {
 		protected void bindContentPartFactoryAsContentViewerAdapter(MapBinder<AdapterKey<?>, Object> adapterMapBinder) {
 			adapterMapBinder.addBinding(AdapterKey.defaultRole()).to(CustomContentPartFactory.class);
 		}
 	}
-	
+
 	class CustomNodeContentPart extends NodePart {
 		private VBox vbox;
 		private Text labelText;

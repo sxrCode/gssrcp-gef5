@@ -42,6 +42,7 @@
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
       <plugin id="org.apache.commons.jxpath"/>
+      <plugin id="org.apache.commons.lang"/>
       <plugin id="org.apache.commons.logging"/>
       <plugin id="org.apache.felix.scr"/>
       <plugin id="org.apache.log4j"/>
@@ -88,6 +89,9 @@
       <plugin id="org.eclipse.equinox.event"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.fx.core"/>
+      <plugin id="org.eclipse.fx.osgi" fragment="true"/>
+      <plugin id="org.eclipse.fx.osgi.util"/>
       <plugin id="org.eclipse.gef.common"/>
       <plugin id="org.eclipse.gef.dot"/>
       <plugin id="org.eclipse.gef.fx"/>
