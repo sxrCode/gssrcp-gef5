@@ -20,6 +20,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.gss.rcp.view.LoginView;
 
@@ -28,26 +30,32 @@ public class SamplePart {
 	private Text txtInput;
 	private TableViewer tableViewer;
 
+	private Logger logger = null;
+
 	@Inject
 	private MDirtyable dirty;
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
+		logger = LoggerFactory.getLogger(SamplePart.class);
 		parent.setLayout(new GridLayout(1, false));
 		txtInput = new Text(parent, SWT.BORDER);
-		txtInput.setMessage("Enter text to mark part as dirty");
+		if (logger != null) {
+			txtInput.setMessage("Enter text to mark part as dirty");
+		}
+
 		txtInput.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				dirty.setDirty(true);
+				if (logger != null) {
+					logger.warn("log: " + txtInput.getText());
+				}
 			}
 		});
 		txtInput.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-
 		tableViewer = new TableViewer(parent);
-
 		tableViewer.setContentProvider(ArrayContentProvider.getInstance());
-		;
 		tableViewer.setInput(createInitialDataModel());
 		tableViewer.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
 	}

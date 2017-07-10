@@ -52,7 +52,6 @@ public class LoginView {
 	}
 
 	private void doEventLoop() {
-		// loginShell.pack();
 		loginShell.open();
 		System.out.println("display size: " + loginShell.getDisplay().getBounds().toString());
 		System.out.println("panel bounds: " + loginPanelBounds.toString());
