@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Gssrcp-gef5
 Bundle-SymbolicName: gssrcp-gef5;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.gss.rcp.Activator
 Require-Bundle: javax.inject;bundle-version="0.0.0",
  com.google.inject;bundle-version="3.0.0",
  org.eclipse.core.runtime;bundle-version="0.0.0",
@@ -39,3 +40,4 @@ Require-Bundle: javax.inject;bundle-version="0.0.0",
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: lib/jfxswt.jar,
  .
+Bundle-ActivationPolicy: lazy
