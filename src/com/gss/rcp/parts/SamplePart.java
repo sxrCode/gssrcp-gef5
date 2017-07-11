@@ -39,7 +39,9 @@ public class SamplePart {
 	public void createComposite(Composite parent) {
 		logger = LoggerFactory.getLogger(SamplePart.class);
 		parent.setLayout(new GridLayout(1, false));
+
 		txtInput = new Text(parent, SWT.BORDER);
+		txtInput.setText("Not found logger!");
 		if (logger != null) {
 			txtInput.setMessage("Enter text to mark part as dirty");
 		}
@@ -54,6 +56,7 @@ public class SamplePart {
 			}
 		});
 		txtInput.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+
 		tableViewer = new TableViewer(parent);
 		tableViewer.setContentProvider(ArrayContentProvider.getInstance());
 		tableViewer.setInput(createInitialDataModel());

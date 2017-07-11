@@ -9,7 +9,6 @@ import org.eclipse.gef.graph.Edge;
 import org.eclipse.gef.graph.Edge.Builder;
 import org.eclipse.gef.graph.Graph;
 import org.eclipse.gef.graph.Node;
-import org.eclipse.gef.layout.algorithms.SpringLayoutAlgorithm;
 import org.eclipse.gef.layout.algorithms.TreeLayoutAlgorithm;
 import org.eclipse.gef.mvc.fx.domain.IDomain;
 import org.eclipse.gef.mvc.fx.viewer.IViewer;
