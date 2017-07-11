@@ -19,6 +19,8 @@
 
    <windowImages/>
 
+   <splash
+      location="gssrcp-gef5" />
    <launcher name="gssrcp">
       <win useIco="false">
          <bmp/>

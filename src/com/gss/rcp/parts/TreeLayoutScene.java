@@ -103,7 +103,6 @@ public class TreeLayoutScene {
 		}
 		return new Graph.Builder().nodes(nodes.toArray(new Node[] {})).edges(edges.toArray(new Edge[] {}))
 				.attr(ZestProperties.LAYOUT_ALGORITHM__G, new TreeLayoutAlgorithm()).build();
-
 	}
 
 	public Scene getScene() {
