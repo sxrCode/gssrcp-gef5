@@ -16,6 +16,10 @@
                name="appName"
                value="gssrcp-gef5">
          </property>
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/gssrcp-gef5/css/default.css">
+         </property>
       </product>
    </extension>
 
