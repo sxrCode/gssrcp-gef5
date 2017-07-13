@@ -8,14 +8,22 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
+import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -29,11 +37,24 @@ public class SamplePart {
 
 	private Text txtInput;
 	private TableViewer tableViewer;
+	private Button button;
 
 	private Logger logger = null;
 
 	@Inject
+	private EPartService ePartService;
+
+	@Inject
+	private EModelService eModelService;
+
+	@Inject
+	private ESelectionService eSelectionService;
+
+	@Inject
 	private MDirtyable dirty;
+
+	@Inject
+	private MApplication mApplication;
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
@@ -41,7 +62,7 @@ public class SamplePart {
 		parent.setLayout(new GridLayout(1, false));
 
 		txtInput = new Text(parent, SWT.BORDER);
-		txtInput.setText("Not found logger!");
+		txtInput.setMessage("Not found logger!");
 		if (logger != null) {
 			txtInput.setMessage("Enter text to mark part as dirty");
 		}
@@ -50,17 +71,43 @@ public class SamplePart {
 			@Override
 			public void modifyText(ModifyEvent e) {
 				dirty.setDirty(true);
-				if (logger != null) {
-					logger.warn("log: " + txtInput.getText());
-				}
 			}
 		});
 		txtInput.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+
+		button = new Button(parent, SWT.PUSH);
+		button.setText("test");
+		button.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				dirty.setDirty(false);
+				// gssrcp-gef5.com.gss.rcp.parts.BrowerPart
+				MPart mPart = (MPart) eModelService.find("gssrcp-gef5.com.gss.rcp.parts.BrowerPart", mApplication);
+				if (mPart != null) {
+					System.out.println("’“µΩ¡À£∫ " + mPart.getElementId());
+					if (mPart.getObject() instanceof BrowerPart) {
+						System.out.println("Object instanceof BrowerPart");
+					}
+					if (mPart.getRenderer() instanceof BrowerPart) {
+						System.out.println("Renderer instanceof BrowerPart");
+					}
+					if (!mPart.isVisible()) {
+						mPart.setVisible(true);
+					}
+
+					// ePartService.activate(mPart);
+				}
+			}
+		});
 
 		tableViewer = new TableViewer(parent);
 		tableViewer.setContentProvider(ArrayContentProvider.getInstance());
 		tableViewer.setInput(createInitialDataModel());
 		tableViewer.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
+
+		if (eModelService != null && eSelectionService != null && ePartService != null) {
+			logger.info("services are ready!");
+		}
 	}
 
 	@Focus

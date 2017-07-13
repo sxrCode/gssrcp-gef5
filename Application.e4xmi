@@ -4,10 +4,10 @@
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.partstack.sample">
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="gssrcp-gef5.part.sample" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.SamplePart" label="Sample Part"/>
-        <children xsi:type="basic:Part" xmi:id="_WF9yEGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.PlattePart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.PlattePart" label="PlattePart"/>
-        <children xsi:type="basic:Part" xmi:id="_WZXPMGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.TreeLayoutPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.TreeLayoutPart" label="TreeLayoutPart"/>
-        <children xsi:type="basic:Part" xmi:id="_IIlTUGIXEeeznPI7HGDnnw" elementId="gssrcp-gef5.com.gss.rcp.parts.ZestPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.ZestPart" label="ZestPart"/>
-        <children xsi:type="basic:Part" xmi:id="_9enxAGa2Eeen4uYL8KzJ4w" elementId="gssrcp-gef5.com.gss.rcp.parts.BrowerPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.BrowerPart" label="BrowerPart"/>
+        <children xsi:type="basic:Part" xmi:id="_WF9yEGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.PlattePart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.PlattePart" label="PlattePart" closeable="true"/>
+        <children xsi:type="basic:Part" xmi:id="_WZXPMGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.TreeLayoutPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.TreeLayoutPart" label="TreeLayoutPart" closeable="true"/>
+        <children xsi:type="basic:Part" xmi:id="_IIlTUGIXEeeznPI7HGDnnw" elementId="gssrcp-gef5.com.gss.rcp.parts.ZestPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.ZestPart" label="ZestPart" closeable="true"/>
+        <children xsi:type="basic:Part" xmi:id="_9enxAGa2Eeen4uYL8KzJ4w" elementId="gssrcp-gef5.com.gss.rcp.parts.BrowerPart" visible="false" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.BrowerPart" label="BrowerPart" closeable="true"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
