@@ -58,6 +58,7 @@ public class SamplePart {
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
+		// new Exception().printStackTrace();
 		logger = LoggerFactory.getLogger(SamplePart.class);
 		parent.setLayout(new GridLayout(1, false));
 
@@ -81,21 +82,22 @@ public class SamplePart {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				dirty.setDirty(false);
-				// gssrcp-gef5.com.gss.rcp.parts.BrowerPart
 				MPart mPart = (MPart) eModelService.find("gssrcp-gef5.com.gss.rcp.parts.BrowerPart", mApplication);
 				if (mPart != null) {
 					System.out.println("’“µΩ¡À£∫ " + mPart.getElementId());
-					if (mPart.getObject() instanceof BrowerPart) {
-						System.out.println("Object instanceof BrowerPart");
-					}
-					if (mPart.getRenderer() instanceof BrowerPart) {
-						System.out.println("Renderer instanceof BrowerPart");
+					mApplication.getContext().set("browser",
+							"http://wiki.eclipse.org/Eclipse4/RCP/Modeled_UI/Model_Elements#Overview");
+					if (mPart.getObject() == null) {
+						System.out.println("Object is null");
 					}
 					if (!mPart.isVisible()) {
 						mPart.setVisible(true);
 					}
-
-					// ePartService.activate(mPart);
+					mPart.setContributionURI("bundleclass://gssrcp-gef5/com.gss.rcp.parts.BrowerPart");
+					ePartService.activate(mPart);
+					if (mPart.getObject() instanceof BrowerPart) {
+						System.out.println("Object is instanceof BrowerPart");
+					}
 				}
 			}
 		});

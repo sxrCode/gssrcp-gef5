@@ -7,7 +7,7 @@
         <children xsi:type="basic:Part" xmi:id="_WF9yEGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.PlattePart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.PlattePart" label="PlattePart" closeable="true"/>
         <children xsi:type="basic:Part" xmi:id="_WZXPMGFEEeeWGtylkGwCAw" elementId="gssrcp-gef5.com.gss.rcp.parts.TreeLayoutPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.TreeLayoutPart" label="TreeLayoutPart" closeable="true"/>
         <children xsi:type="basic:Part" xmi:id="_IIlTUGIXEeeznPI7HGDnnw" elementId="gssrcp-gef5.com.gss.rcp.parts.ZestPart" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.ZestPart" label="ZestPart" closeable="true"/>
-        <children xsi:type="basic:Part" xmi:id="_9enxAGa2Eeen4uYL8KzJ4w" elementId="gssrcp-gef5.com.gss.rcp.parts.BrowerPart" visible="false" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.parts.BrowerPart" label="BrowerPart" closeable="true"/>
+        <children xsi:type="basic:Part" xmi:id="_9enxAGa2Eeen4uYL8KzJ4w" elementId="gssrcp-gef5.com.gss.rcp.parts.BrowerPart" visible="false" contributionURI="bundleclass://gssrcp-gef5/com.gss.rcp.examples.gef5.mvc.logo.MvcLogoExample" label="BrowerPart" closeable="true"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
