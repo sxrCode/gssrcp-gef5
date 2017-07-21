@@ -387,7 +387,7 @@ public class MvcLogoExample extends AbstractMvcExample {
 	@Override
 	protected void populateViewerContents() {
 		getContentViewer().getContents().setAll(createContentViewerContents());
-		getPaletteViewer().getContents().setAll(createPaletteViewerContents());
+		// getPaletteViewer().getContents().setAll(createPaletteViewerContents());
 		Stage stage = getPrimaryStage();
 		if (stage != null) {
 			stage.sizeToScene();

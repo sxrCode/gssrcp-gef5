@@ -58,7 +58,6 @@ public class SamplePart {
 
 	@PostConstruct
 	public void createComposite(Composite parent) {
-		// new Exception().printStackTrace();
 		logger = LoggerFactory.getLogger(SamplePart.class);
 		parent.setLayout(new GridLayout(1, false));
 
@@ -83,8 +82,14 @@ public class SamplePart {
 			public void widgetSelected(SelectionEvent e) {
 				dirty.setDirty(false);
 				MPart mPart = (MPart) eModelService.find("gssrcp-gef5.com.gss.rcp.parts.BrowerPart", mApplication);
+				// MPart mPart =
+				// ePartService.createPart("gssrcp-gef5.com.gss.rcp.parts.BrowerPart");
+				// ContextInjectionFactory.make();
 				if (mPart != null) {
 					System.out.println("’“µΩ¡À£∫ " + mPart.getElementId());
+					if (mPart.getContext() != null) {
+						System.out.println("mPart Context isn't null!");
+					}
 					mApplication.getContext().set("browser",
 							"http://wiki.eclipse.org/Eclipse4/RCP/Modeled_UI/Model_Elements#Overview");
 					if (mPart.getObject() == null) {
@@ -99,6 +104,7 @@ public class SamplePart {
 						System.out.println("Object is instanceof BrowerPart");
 					}
 				}
+
 			}
 		});
 
